@@ -159,11 +159,14 @@ if st.button("Jogar novamente 🔄"):
 
     st.rerun()
 
-# 🔒 ADMIN INVISÍVEL
+# 🔒 ADMIN SUPER INVISÍVEL
 
-codigo_secreto = st.text_input("", type="password", label_visibility="collapsed")
+with st.sidebar:
+    st.markdown("")
 
-if codigo_secreto == "reset_quiz_2026":
+codigo = st.sidebar.text_input("", type="password", label_visibility="collapsed")
+
+if codigo == "reset_quiz_2026":
     with open("ranking.json", "w") as f:
         json.dump([], f)
     st.success("✅ Sistema atualizado")
