@@ -158,20 +158,12 @@ if st.button("Jogar novamente 🔄"):
     st.session_state.quiz_perguntas = random.sample(perguntas, 10)
 
     st.rerun()
-if "admin" not in st.session_state:
-    st.session_state.admin = False
 
-# campo secreto
-codigo_secreto = st.text_input("")
+# 🔒 ADMIN INVISÍVEL
 
-if codigo_secreto == "math08":
-    st.session_state.admin = True
+codigo_secreto = st.text_input("", type="password", label_visibility="collapsed")
 
-# só aparece se ativar
-if st.session_state.admin:
-    st.subheader("⚙️ Admin")
-
-    if st.button("Resetar Ranking 🗑️"):
-        with open("ranking.json", "w") as f:
-            json.dump([], f)
-        st.success("Ranking resetado!")
+if codigo_secreto == "reset_quiz_2026":
+    with open("ranking.json", "w") as f:
+        json.dump([], f)
+    st.success("✅ Sistema atualizado")
