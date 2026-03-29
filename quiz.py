@@ -12,21 +12,58 @@ st.write("Responda as 10 questões e veja sua pontuação!")
 nome = st.text_input("Digite seu nome:")
 
 # Banco de perguntas
-perguntas = [
-    {"pergunta": "Unidade da corrente elétrica?", "opcoes": ["Volt", "Ampere", "Ohm", "Watt"], "resposta": "Ampere"},
-    {"pergunta": "O DNA armazena?", "opcoes": ["Energia", "Informação genética", "Proteínas", "Oxigênio"], "resposta": "Informação genética"},
-    {"pergunta": "Lei de Ohm: V = R . ?", "opcoes": ["Potência", "Corrente", "Energia", "Carga"], "resposta": "Corrente"},
-    {"pergunta": "Planeta mais próximo do Sol?", "opcoes": ["Terra", "Marte", "Mercúrio", "Vênus"], "resposta": "Mercúrio"},
-    {"pergunta": "Fórmula da água?", "opcoes": ["CO2", "H2O", "O2", "H2"], "resposta": "H2O"},
-    {"pergunta": "Órgão responsável pela respiração?", "opcoes": ["Coração", "Pulmão", "Fígado", "Rim"], "resposta": "Pulmão"},
-    {"pergunta": "Velocidade da luz é aproximadamente?", "opcoes": ["300 mil km/s", "150 mil km/s", "1 milhão km/s", "30 mil km/s"], "resposta": "300 mil km/s"},
-    {"pergunta": "pH menor que 7 é?", "opcoes": ["Básico", "Neutro", "Ácido", "Alcalino"], "resposta": "Ácido"},
-    {"pergunta": "Gás essencial para respiração?", "opcoes": ["CO2", "O2", "N2", "H2"], "resposta": "O2"},
-    {"pergunta": "Função das mitocôndrias?", "opcoes": ["Digestão", "Produzir energia", "Respiração externa", "Transporte"], "resposta": "Produzir energia"},
-    {"pergunta": "Unidade de força?", "opcoes": ["Joule", "Newton", "Watt", "Pascal"], "resposta": "Newton"},
-    {"pergunta": "Ecossistema é?", "opcoes": ["Só animais", "Só plantas", "Seres vivos + ambiente", "Só água"], "resposta": "Seres vivos + ambiente"}
+perguntas = perguntas = [
+    {
+        "pergunta": "O crescimento desordenado das cidades está mais associado a:",
+        "opcoes": ["Planejamento urbano eficiente", "Expansão sem infraestrutura adequada", "Redução da população", "Aumento de áreas verdes"],
+        "resposta": "Expansão sem infraestrutura adequada"
+    },
+    {
+        "pergunta": "Um dos principais problemas sociais nas cidades é:",
+        "opcoes": ["Excesso de transporte público", "Falta de moradia adequada", "Baixa densidade populacional", "Excesso de áreas verdes"],
+        "resposta": "Falta de moradia adequada"
+    },
+    {
+        "pergunta": "O crescimento urbano desordenado pode causar:",
+        "opcoes": ["Melhoria no saneamento", "Redução da poluição", "Aumento da desigualdade social", "Mais planejamento urbano"],
+        "resposta": "Aumento da desigualdade social"
+    },
+    {
+        "pergunta": "A falta de saneamento básico pode resultar em:",
+        "opcoes": ["Melhor qualidade de vida", "Doenças e contaminação", "Aumento da renda", "Redução da população"],
+        "resposta": "Doenças e contaminação"
+    },
+    {
+        "pergunta": "Um impacto ambiental comum nas cidades é:",
+        "opcoes": ["Aumento da biodiversidade", "Redução da poluição", "Poluição do ar e da água", "Mais áreas naturais"],
+        "resposta": "Poluição do ar e da água"
+    },
+    {
+        "pergunta": "As enchentes urbanas são causadas principalmente por:",
+        "opcoes": ["Excesso de árvores", "Impermeabilização do solo", "Baixa população", "Pouca chuva"],
+        "resposta": "Impermeabilização do solo"
+    },
+    {
+        "pergunta": "Uma solução para cidades mais sustentáveis é:",
+        "opcoes": ["Aumentar áreas de risco", "Investir em transporte público", "Reduzir planejamento urbano", "Diminuir áreas verdes"],
+        "resposta": "Investir em transporte público"
+    },
+    {
+        "pergunta": "O planejamento urbano tem como objetivo:",
+        "opcoes": ["Organizar o crescimento das cidades", "Aumentar a poluição", "Reduzir infraestrutura", "Aumentar desigualdade"],
+        "resposta": "Organizar o crescimento das cidades"
+    },
+    {
+        "pergunta": "A desigualdade urbana está relacionada a:",
+        "opcoes": ["Distribuição justa de renda", "Falta de acesso a serviços básicos", "Excesso de escolas", "Boa infraestrutura"],
+        "resposta": "Falta de acesso a serviços básicos"
+    },
+    {
+        "pergunta": "Uma cidade sustentável deve:",
+        "opcoes": ["Ignorar o meio ambiente", "Priorizar apenas carros", "Equilibrar desenvolvimento e meio ambiente", "Reduzir qualidade de vida"],
+        "resposta": "Equilibrar desenvolvimento e meio ambiente"
+    }
 ]
-
 # Seleciona 10 aleatórias (uma vez só)
 if "quiz_perguntas" not in st.session_state:
     st.session_state.quiz_perguntas = random.sample(perguntas, 10)
