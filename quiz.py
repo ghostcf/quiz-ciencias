@@ -159,14 +159,11 @@ if st.button("Jogar novamente 🔄"):
 
     st.rerun()
 
-# 🔒 ADMIN SUPER INVISÍVEL
-
 with st.sidebar:
-    st.markdown("")
+    codigo = st.text_input("Admin", type="password")
 
-codigo = st.sidebar.text_input("", type="password", label_visibility="collapsed")
-
-if codigo == "reset_quiz_2026":
-    with open("ranking.json", "w") as f:
-        json.dump([], f)
-    st.success("✅ Sistema atualizado")
+    if codigo == "math08":
+        if st.button("Resetar Ranking"):
+            with open("ranking.json", "w") as f:
+                json.dump([], f)
+            st.success("Resetado!")
