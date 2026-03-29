@@ -158,14 +158,20 @@ if st.button("Jogar novamente 🔄"):
     st.session_state.quiz_perguntas = random.sample(perguntas, 10)
 
     st.rerun()
-st.subheader("⚙️ Resetar Ranking (Admin)")
+if "admin" not in st.session_state:
+    st.session_state.admin = False
 
-senha = st.text_input("Digite a senha:", type="password")
+# campo secreto
+codigo_secreto = st.text_input("")
 
-if st.button("Resetar Ranking 🗑️"):
-    if senha == "math08":
+if codigo_secreto == "math08":
+    st.session_state.admin = True
+
+# só aparece se ativar
+if st.session_state.admin:
+    st.subheader("⚙️ Admin")
+
+    if st.button("Resetar Ranking 🗑️"):
         with open("ranking.json", "w") as f:
             json.dump([], f)
-        st.success("Ranking resetado com sucesso!")
-    else:
-        st.error("Senha incorreta!")
+        st.success("Ranking resetado!")
