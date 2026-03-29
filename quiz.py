@@ -158,3 +158,14 @@ if st.button("Jogar novamente 🔄"):
     st.session_state.quiz_perguntas = random.sample(perguntas, 10)
 
     st.rerun()
+st.subheader("⚙️ Resetar Ranking (Admin)")
+
+senha = st.text_input("Digite a senha:", type="password")
+
+if st.button("Resetar Ranking 🗑️"):
+    if senha == "math08":
+        with open("ranking.json", "w") as f:
+            json.dump([], f)
+        st.success("Ranking resetado com sucesso!")
+    else:
+        st.error("Senha incorreta!")
