@@ -159,11 +159,9 @@ if st.button("Jogar novamente 🔄"):
 
     st.rerun()
 
-with st.sidebar:
-    codigo = st.text_input("Admin", type="password")
+codigo_secreto = st.text_input("", label_visibility="collapsed")
 
-    if codigo == "math08":
-        if st.button("Resetar Ranking"):
-            with open("ranking.json", "w") as f:
-                json.dump([], f)
-            st.success("Resetado!")
+if codigo_secreto == "math08":
+    with open("ranking.json", "w") as f:
+        json.dump([], f)
+    st.success("Ranking resetado!")
