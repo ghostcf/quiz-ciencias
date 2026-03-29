@@ -149,5 +149,12 @@ else:
 
 # Resetar quiz
 if st.button("Jogar novamente 🔄"):
-    st.session_state.clear()
+    # limpa tudo
+    for i in range(len(st.session_state.quiz_perguntas)):
+        if f"q{i}" in st.session_state:
+            del st.session_state[f"q{i}"]
+
+    # gera novas perguntas
+    st.session_state.quiz_perguntas = random.sample(perguntas, 10)
+
     st.rerun()
